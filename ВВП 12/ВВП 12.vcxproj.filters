@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ОАиП.c">
+    <ClCompile Include="12.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
