@@ -1,19 +1,31 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <math.h>
 
-int main() {
-    int i = 1, j = 2, buf, N = 7;
-    int arr[] = { 6, 3, 1, 5, 9, -7, 2 };
-    while (i < N) {
-        if (arr[i - 1] > arr[i]) {
-            buf = arr[i];
-            arr[i] = arr[i - 1];
-            arr[i - 1] = buf;
-            i--;
-            if (i > 0) continue;
+void qsort(int* arr, int b, int e) {
+    int piv = arr[(b + e) / 2];
+    int l = b;
+    int r = e;
+    while (l <= r)
+    {
+        while (arr[l] < piv) l++;
+        while (arr[r] > piv) r--;
+        if (l <= r) 
+        {
+            int t = arr[l];
+            arr[l] = arr[r];
+            arr[r] = t;
+            l++;
+            r--;
         }
-        i = j++;
     }
-    for (i = 0; i < N; i++)
-        printf("%d\n", arr[i]);
+}
+int main()
+{
+    int b, e, l, r, t;
+    int arr[] = { 5,3,1,-6,-8 };
+    int N = sizeof(arr) / sizeof(int);
+    qsort(arr, 0, N - 1);
+    for (int i = 0; i < N; i++)
+        printf(" %d\n", arr[i]);
     return 0;
 }
